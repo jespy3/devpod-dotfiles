@@ -1,5 +1,5 @@
 # Set config home
-export XDG_CONFIG_HOME="$HOME/dotfiles/config"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Source all partial configs
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
