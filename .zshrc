@@ -3,14 +3,18 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Bootstrap nix packages
 ln -sf "$HOME/dotfiles/.config/nix-flake" "$HOME/nix-flake"
-ln -sf "$HOME/dotfiles/.config/nix" "$XDG_CONFIG_HOME/nix"
+mkdir -p "$XDG_CONFIG_HOME/nix"
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
 if ! command -v nix >/dev/null; then
     echo "[ERROR] ❌ nix is not installed in PATH"
     return 1
 fi
 
-if ! nix profile list | grep -q 'myPackages'; then
+if nix profile list | grep -q 'myPackages'; then
+    echo "✅ myPackages already installed – no update needed."
+else
+    echo "⬇️ Installing myPackages from flake..."
     nix profile add "$HOME/nix-flake#myPackages"
 fi
 
