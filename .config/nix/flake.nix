@@ -5,8 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # or use 'nixpkgs/stable' or 'nixpkgs/nixos-ustable'
   };
 
-  outputs = { nixpkgs, ... }: {
-    packages.x86_64-linux.myPackages = let
+  outputs = { nixpkgs, system, ... }: {
+    packages.${system}.myPackages = let
       pkgs = import nixpkgs {
         system = "x86_64-linux";
       };
