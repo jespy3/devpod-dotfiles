@@ -2,6 +2,8 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Bootstrap nix packages
+mkdir -p "$XDG_CONFIG_HOME/nix"
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ln -sf "$HOME/dotfiles/.config/nix" "$HOME/nix-flake"
 
 if ! command -v nix >/dev/null; then
@@ -10,7 +12,7 @@ if ! command -v nix >/dev/null; then
 fi
 
 if ! nix profile list | grep -q 'myPackages'; then
-    nix --extra-experimental-features "nix-command flakes" profile add "$HOME/nix-flake#myPackages"
+    nix profile add "$HOME/nix-flake#myPackages"
 fi
 
 # Bootstrap zsh configs
