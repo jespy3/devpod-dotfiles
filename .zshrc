@@ -25,11 +25,10 @@ source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$XDG_CONFIG_HOME/zsh/plugins.zsh"
 source "$XDG_CONFIG_HOME/zsh/config.zsh"
 
-# Bootstrap git configs
+# Bootstrap others
 ln -sf "$HOME/dotfiles/.config/git" "$XDG_CONFIG_HOME/git"
-
-# Bootstrap tmux configs
 ln -sf "$HOME/dotfiles/.config/tmux" "$XDG_CONFIG_HOME/tmux"
+ln -sf "$HOME/dotfiles/.config/nvim" "$XDG_CONFIG_HOME/nvim"
 
 # -------
 
