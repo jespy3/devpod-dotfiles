@@ -2,9 +2,8 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Bootstrap nix packages
-mkdir -p "$XDG_CONFIG_HOME/nix"
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-ln -sf "$HOME/dotfiles/.config/nix" "$HOME/nix-flake"
+ln -sf "$HOME/dotfiles/.config/nix-flake" "$HOME/nix-flake"
+ln -sf "$HOME/dotfiles/.config/nix" "$XDG_CONFIG_HOME/nix"
 
 if ! command -v nix >/dev/null; then
     echo "[ERROR] ❌ nix is not installed in PATH"
