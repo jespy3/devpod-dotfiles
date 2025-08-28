@@ -1,0 +1,8 @@
+[alias]
+        s = status
+[init]
+        defaultBranch = main
+[user]
+        email = 29829925+jespy3@users.noreply.github.com
+        name = jespy3
+
