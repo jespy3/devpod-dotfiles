@@ -20,6 +20,7 @@ fi
 
 # Bootstrap zsh configs
 #ln -sf "$HOME/.config/zsh" "$XDG_CONFIN"
+ln -sf "$HOME/dotfiles/.config/zsh" "$XDG_CONFIG_HOME/zsh"
 source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 source "$XDG_CONFIG_HOME/zsh/plugins.zsh"
 source "$XDG_CONFIG_HOME/zsh/config.zsh"
