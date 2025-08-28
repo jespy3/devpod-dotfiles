@@ -12,7 +12,7 @@ if ! command -v nix >/dev/null; then
 fi
 
 if nix profile list | grep -q 'myPackages'; then
-    echo "✅ myPackages already installed – no update needed."
+    echo "✅ Nix \"myPackages\" already installed – no update needed."
 else
     echo "⬇️ Installing myPackages from flake..."
     nix profile add "$HOME/nix-flake#myPackages"
@@ -27,6 +27,9 @@ source "$XDG_CONFIG_HOME/zsh/config.zsh"
 
 # Bootstrap git configs
 ln -sf "$HOME/dotfiles/.config/git" "$XDG_CONFIG_HOME/git"
+
+# Bootstrap tmux configs
+ln -sf "$HOME/dotfiles/.config/tmux" "$XDG_CONFIG_HOME/tmux"
 
 # -------
 
